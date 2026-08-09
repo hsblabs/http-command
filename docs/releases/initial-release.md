@@ -1,10 +1,12 @@
 ---
 title: Initial npm release
-status: ready
+status: package-published
 date: 2026-08-09
 ---
 
 # Initial npm release
+
+`@hsblabs/http-command@0.1.0` and `@hsblabs/http-cli@0.1.0` are published, and both release tags are on GitHub. Repository hardening and trusted publishing remain.
 
 The first release is manual because the npm packages must exist before trusted publishing can be configured. Do not make the GitHub repository public until both `0.1.0` packages are available on npm.
 

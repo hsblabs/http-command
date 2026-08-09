@@ -13,10 +13,16 @@
     "check": "pnpm run docs:check && pnpm run release:config:check && pnpm run typecheck && pnpm run test && pnpm run build",
     "pack:dry-run": "pnpm --filter @hsblabs/http-command pack --dry-run && pnpm --filter @hsblabs/http-cli pack --dry-run",
     "pack:check": "node scripts/check-packed-packages.mjs",
-    "release:check": "pnpm run check && pnpm run pack:dry-run && pnpm run pack:check",
+    "audit": "pnpm audit --audit-level=high",
+    "release:check": "pnpm run check && pnpm run audit && pnpm run pack:dry-run && pnpm run pack:check",
     "release": "pnpm run release:check && changeset publish"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.29.8"
+    "@changesets/cli": "^2.31.1"
+  },
+  "pnpm": {
+    "overrides": {
+      "vite": "7.3.6"
+    }
   }
 }

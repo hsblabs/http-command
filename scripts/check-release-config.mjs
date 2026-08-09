@@ -8,12 +8,13 @@ const packageNames = ['@hsblabs/http-command', '@hsblabs/http-cli'];
 const readJson = async (relativePath) =>
   JSON.parse(await readFile(path.join(root, relativePath), 'utf8'));
 
-const [workspace, changesets, command, cli, mise, workflow] = await Promise.all([
+const [workspace, changesets, command, cli, mise, ciWorkflow, releaseWorkflow] = await Promise.all([
   readJson('package.json'),
   readJson('.changeset/config.json'),
   readJson('packages/http-command/package.json'),
   readJson('packages/http-cli/package.json'),
   readFile(path.join(root, 'mise.toml'), 'utf8'),
+  readFile(path.join(root, '.github/workflows/ci.yml'), 'utf8'),
   readFile(path.join(root, '.github/workflows/release.yml'), 'utf8'),
 ]);
 
@@ -66,14 +67,21 @@ for (const required of [
   "github.event.repository.visibility == 'public'",
   "vars.NPM_TRUSTED_PUBLISHING_ENABLED == 'true'",
   'id-token: write',
-  'changesets/action@v1',
+  'changesets/action@',
 ]) {
-  if (!workflow.includes(required)) {
+  if (!releaseWorkflow.includes(required)) {
     fail(`release workflow is missing ${required}`);
   }
 }
-if (workflow.includes('NPM_TOKEN')) {
+if (releaseWorkflow.includes('NPM_TOKEN')) {
   fail('release workflow must use OIDC instead of NPM_TOKEN');
+}
+
+const actionReferences = [ciWorkflow, releaseWorkflow].flatMap((workflow) =>
+  [...workflow.matchAll(/^\s*- uses: ([^\s]+)/gm)].map((match) => match[1]),
+);
+if (actionReferences.length === 0 || actionReferences.some((reference) => !/@[0-9a-f]{40}$/.test(reference))) {
+  fail('every GitHub Action must use a full commit SHA');
 }
 
 console.log(`Release configuration OK: ${packageNames.join(' + ')} ${command.version}`);

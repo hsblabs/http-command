@@ -71,6 +71,8 @@
 
 ## 2026-08-09
 
+- npm libraryの公開監査はproduction依存だけでは足りない。OIDC release jobがinstallして実行するdevelopment/release依存も供給網に含まれるため、`pnpm audit --audit-level=high`をrelease gateへ組み込む。
+- GitHub Actionsのmajor tagは可変参照であり、特に`changesets/action@v1`はbranchである。公開前にfull commit SHAへ固定し、検査scriptとrepository settingのSHA pin要求で退行を防ぐ。
 - Abort対応のfetch test doubleはlistener追加だけでは不十分で、callerが同一tickでabortすると登録前にeventを取り逃す。`signal.aborted`を先に判定して即時rejectし、その後listenerを登録する。
 - TypeScript 6では`baseUrl`が非推奨エラーになる。`paths`のtargetはtsconfig所在を基準に解決できるため、不要な`baseUrl`を削除する。
 - Changesets 2はworkspaceのpackage managerをpublishに使う。pnpm 11はpublishをnpm CLIへ委譲しないため、npm trusted publishingをChangesets経由で使う間はOIDC対応npmへ委譲するpnpm 10を固定する。

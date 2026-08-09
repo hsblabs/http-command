@@ -22,6 +22,22 @@
 - [x] IR06: check、両packageのpack、clean consumer install/importを通す（blocks: IR03, IR05）
 - [x] IR07: 検証済みの初回公開準備をtask記録とcommitへ反映（blocks: IR06）
 
+## チーム編成（2026-08-09 / Public Repository Hardening）
+
+- Root（実装）: 公開仕様、repository files、依存更新、GitHub設定、launch検証
+- GitHub Settings（監査）: settings、ruleset、security API、Action SHAを点検
+- Public Content（監査）: git履歴、秘密情報、公開文書、依存脆弱性を点検
+
+## Public Repository Hardening
+
+- [x] PRH01: public化の状態遷移、invariant、rollbackを仕様とADRに固定
+- [x] PRH02: root LICENSE、SECURITY、Dependabot、workflow SHA pinを追加（blocks: PRH01）
+- [x] PRH03: 開発・release依存のcritical/high脆弱性を0にする（blocks: PRH01）
+- [x] PRH04: release gateを通しprivate mainへcommit/push（blocks: PRH02, PRH03）
+- [ ] PRH05: metadata、merge、Actions、privateで利用可能なsecurity設定を反映（blocks: PRH04）
+- [ ] PRH06: public化しmain rulesetとpublic security機能を有効化（blocks: PRH05）
+- [ ] PRH07: npm Trusted Publisherなど利用者操作をhandoff（blocks: PRH06）
+
 ## チーム編成（2026-02-24）
 
 - A（設計）: PRD要件を型・APIに落とし込む
