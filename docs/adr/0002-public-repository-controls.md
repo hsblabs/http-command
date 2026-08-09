@@ -20,6 +20,7 @@ The initial npm packages were published while the source repository was private.
 - Require the `build-and-test` check on `main` after public rulesets become available.
 - Enable GitHub dependency, secret, code-scanning, and private-reporting controls after public launch.
 - Keep the npm release variable unset until both packages trust the OIDC workflow.
+- Trigger Release PR checks with a maintainer-authored empty commit instead of a long-lived GitHub token.
 
 ## Consequences
 
@@ -27,4 +28,5 @@ The initial npm packages were published while the source repository was private.
 - Public pull requests cannot publish packages or receive repository secrets.
 - A single maintainer can merge after checks without an impossible self-approval requirement.
 - Dependency and Action update pull requests are created automatically.
+- Release PR validation requires one explicit maintainer push before merge.
 - Public visibility and npm automation remain separate, reversible decisions.
