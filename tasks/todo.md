@@ -36,7 +36,7 @@
 - [x] PRH04: release gateを通しprivate mainへcommit/push（blocks: PRH02, PRH03）
 - [x] PRH05: metadata、merge、Actions、privateで利用可能なsecurity設定を反映（blocks: PRH04）
 - [x] PRH06: public化しmain rulesetとpublic security機能を有効化（blocks: PRH05）
-- [ ] PRH07: npm Trusted Publisherなど利用者操作をhandoff（blocks: PRH06）
+- [x] PRH07: npm Trusted Publisherなど利用者操作をhandoff（blocks: PRH06）
 
 ## チーム編成（2026-02-24）
 
