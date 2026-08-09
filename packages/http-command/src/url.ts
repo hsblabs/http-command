@@ -30,8 +30,14 @@ function joinPathPrefix(basePath: string, operationPath: string): string {
   if (!operationPath) return basePath;
   if (!basePath) return operationPath;
 
-  const normalizedBase = basePath.replace(/\/+$/, '');
-  const normalizedOperation = operationPath.replace(/^\/+/, '');
+  let baseEnd = basePath.length;
+  while (baseEnd > 0 && basePath[baseEnd - 1] === '/') baseEnd -= 1;
+
+  let operationStart = 0;
+  while (operationPath[operationStart] === '/') operationStart += 1;
+
+  const normalizedBase = basePath.slice(0, baseEnd);
+  const normalizedOperation = operationPath.slice(operationStart);
 
   if (!normalizedOperation) return `${normalizedBase}/`;
   return `${normalizedBase}/${normalizedOperation}`;
