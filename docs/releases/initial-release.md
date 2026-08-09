@@ -65,10 +65,13 @@ Do not add `NPM_TOKEN`. The workflow uses OIDC through npm trusted publishing. A
 
 ## 6. Later releases
 
-Add a Changeset to each change. Pushes to `main` maintain a Release PR. GitHub does not start PR workflows for pull requests created with `GITHUB_TOKEN`, so run the required check against the final release branch:
+Add a Changeset to each change. Pushes to `main` maintain a Release PR. GitHub does not start PR workflows for pull requests created with `GITHUB_TOKEN`, so trigger the required check with a maintainer-authored empty commit on the final release branch:
 
 ```bash
-gh workflow run ci.yml --ref changeset-release/main
+gh pr checkout <release-pr-number>
+git commit --allow-empty -m "chore: run release checks"
+git push
+git switch main
 ```
 
 Merge only after `build-and-test` succeeds. Merging publishes both fixed-group packages at the same version and creates GitHub Releases.
