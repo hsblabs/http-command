@@ -1,6 +1,6 @@
 {
   "name": "@hsblabs/http-command",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Typed command protocol and HTTP client runtime for TypeScript SDKs",
   "license": "MIT",
   "sideEffects": false,
