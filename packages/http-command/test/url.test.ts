@@ -14,6 +14,9 @@ describe('url helpers', () => {
     expect(resolveUrl('https://api.example.com/v1/', 'users')).toBe(
       'https://api.example.com/v1/users',
     );
+    expect(resolveUrl('https://api.example.com/v1///', '///users')).toBe(
+      'https://api.example.com/v1/users',
+    );
   });
 
   test('resolveUrl preserves operation query and fragment', () => {
