@@ -76,6 +76,9 @@ for (const required of [
 if (releaseWorkflow.includes('NPM_TOKEN')) {
   fail('release workflow must use OIDC instead of NPM_TOKEN');
 }
+if (!ciWorkflow.includes('workflow_dispatch:')) {
+  fail('CI must support manual checks for the Changesets release PR');
+}
 
 const actionReferences = [ciWorkflow, releaseWorkflow].flatMap((workflow) =>
   [...workflow.matchAll(/^\s*- uses: ([^\s]+)/gm)].map((match) => match[1]),
