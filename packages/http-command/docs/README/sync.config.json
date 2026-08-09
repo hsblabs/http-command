@@ -1,0 +1,152 @@
+{
+  "sourceFile": "../../README.md",
+  "localeFiles": {
+    "ja": "./ja.md",
+    "fr": "./fr.md",
+    "de": "./de.md",
+    "zh-CN": "./zh-CN.md",
+    "zh-TW": "./zh-TW.md"
+  },
+  "forbiddenPatterns": [
+    "\\bcreateCommand\\b",
+    "\\bdefineOperation\\b",
+    "\\bdefineJsonOperation\\b",
+    "\\bmiddlewares\\s*:",
+    "Command<[^>]*Input",
+    "\\bparse\\s*:"
+  ],
+  "sections": [
+    {
+      "id": "features",
+      "sourceHeading": "Features",
+      "localizedHeadings": {
+        "ja": "特徴",
+        "fr": "Caractéristiques",
+        "de": "Funktionen",
+        "zh-CN": "特性",
+        "zh-TW": "特性"
+      }
+    },
+    {
+      "id": "installation",
+      "sourceHeading": "Installation",
+      "localizedHeadings": {
+        "ja": "インストール",
+        "fr": "Installation",
+        "de": "Installation",
+        "zh-CN": "安装",
+        "zh-TW": "安裝"
+      }
+    },
+    {
+      "id": "minimal-example",
+      "sourceHeading": "Minimal Example",
+      "localizedHeadings": {
+        "ja": "最小利用例",
+        "fr": "Exemple minimal",
+        "de": "Minimales Beispiel",
+        "zh-CN": "最小示例",
+        "zh-TW": "最小範例"
+      }
+    },
+    {
+      "id": "scoped-sdk",
+      "sourceHeading": "Defining a Scoped SDK",
+      "localizedHeadings": {
+        "ja": "Scope付きSDKの定義",
+        "fr": "SDK délimités par service",
+        "de": "Dienstspezifisch typisierte SDKs",
+        "zh-CN": "服务作用域 SDK",
+        "zh-TW": "服務作用域 SDK"
+      }
+    },
+    {
+      "id": "url-parameters",
+      "sourceHeading": "URL and Parameter Semantics",
+      "localizedHeadings": {
+        "ja": "URLとparameterの仕様",
+        "fr": "Résolution d’URL et encodage des chemins",
+        "de": "URL-Auflösung und Pfadkodierung",
+        "zh-CN": "URL 解析与路径编码",
+        "zh-TW": "URL 解析與路徑編碼"
+      }
+    },
+    {
+      "id": "response-errors",
+      "sourceHeading": "Response and Error Decoding",
+      "localizedHeadings": {
+        "ja": "Responseとerrorのdecode",
+        "fr": "Analyse des réponses et erreurs de service",
+        "de": "Antwortverarbeitung und Dienstfehler",
+        "zh-CN": "响应解析与服务错误",
+        "zh-TW": "回應解析與服務錯誤"
+      }
+    },
+    {
+      "id": "request-bodies",
+      "sourceHeading": "Request Bodies and Retry",
+      "localizedHeadings": {
+        "ja": "Request bodyとretry",
+        "fr": "Corps de requête rejouables",
+        "de": "Wiederholbare Request-Bodies",
+        "zh-CN": "可重放的请求体",
+        "zh-TW": "可重播的請求本文"
+      }
+    },
+    {
+      "id": "middleware",
+      "sourceHeading": "Middleware Usage",
+      "localizedHeadings": {
+        "ja": "Middlewareの使用",
+        "fr": "Utilisation des middlewares",
+        "de": "Middleware-Verwendung",
+        "zh-CN": "使用中间件",
+        "zh-TW": "使用中介軟體"
+      }
+    },
+    {
+      "id": "custom-middleware",
+      "sourceHeading": "Creating Custom Middleware",
+      "localizedHeadings": {
+        "ja": "Custom middlewareの作成",
+        "fr": "Créer un middleware personnalisé",
+        "de": "Benutzerdefinierte Middleware erstellen",
+        "zh-CN": "创建自定义中间件",
+        "zh-TW": "建立自訂中介軟體"
+      }
+    },
+    {
+      "id": "api-reference",
+      "sourceHeading": "API Reference",
+      "localizedHeadings": {
+        "ja": "APIリファレンス",
+        "fr": "Référence API",
+        "de": "API-Referenz",
+        "zh-CN": "API 参考",
+        "zh-TW": "API 參考"
+      }
+    },
+    {
+      "id": "development",
+      "sourceHeading": "Development",
+      "localizedHeadings": {
+        "ja": "開発",
+        "fr": "Développement",
+        "de": "Entwicklung",
+        "zh-CN": "开发",
+        "zh-TW": "開發"
+      }
+    },
+    {
+      "id": "license",
+      "sourceHeading": "License",
+      "localizedHeadings": {
+        "ja": "ライセンス",
+        "fr": "Licence",
+        "de": "Lizenz",
+        "zh-CN": "许可证",
+        "zh-TW": "授權"
+      }
+    }
+  ]
+}

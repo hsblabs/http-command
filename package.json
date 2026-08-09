@@ -1,0 +1,22 @@
+{
+  "name": "http-command-workspace",
+  "private": true,
+  "packageManager": "pnpm@10.30.2",
+  "scripts": {
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "docs:check": "node scripts/check-readme-sync.mjs",
+    "release:config:check": "node scripts/check-release-config.mjs",
+    "typecheck": "pnpm --filter @hsblabs/http-command exec tsc --noEmit && pnpm --filter @hsblabs/http-cli exec tsc --noEmit && pnpm --filter example-poke-api exec tsc --noEmit && pnpm --filter example-httpbin exec tsc --noEmit && pnpm --filter example-animechan exec tsc --noEmit",
+    "build": "pnpm -r run build",
+    "test": "pnpm -r run test",
+    "check": "pnpm run docs:check && pnpm run release:config:check && pnpm run typecheck && pnpm run test && pnpm run build",
+    "pack:dry-run": "pnpm --filter @hsblabs/http-command pack --dry-run && pnpm --filter @hsblabs/http-cli pack --dry-run",
+    "pack:check": "node scripts/check-packed-packages.mjs",
+    "release:check": "pnpm run check && pnpm run pack:dry-run && pnpm run pack:check",
+    "release": "pnpm run release:check && changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.29.8"
+  }
+}

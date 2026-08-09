@@ -1,0 +1,62 @@
+{
+  "name": "@hsblabs/http-cli",
+  "version": "0.1.0",
+  "description": "CLI framework for @hsblabs/http-command — build HTTP CLIs with zero external dependencies",
+  "license": "MIT",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "http",
+    "cli",
+    "command",
+    "sdk",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hsblabs/http-command.git",
+    "directory": "packages/http-cli"
+  },
+  "bugs": {
+    "url": "https://github.com/hsblabs/http-command/issues"
+  },
+  "homepage": "https://github.com/hsblabs/http-command/tree/main/packages/http-cli#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "main": "dist/index.mjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.mts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check": "pnpm run typecheck && pnpm run test && pnpm run build",
+    "prepack": "pnpm run check"
+  },
+  "dependencies": {
+    "@hsblabs/http-command": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}
